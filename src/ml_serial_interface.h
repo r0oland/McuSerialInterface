@@ -10,8 +10,15 @@ namespace mlSerial {
     uint8_t bytes[8];
     int64_t val;
   };
+  
   // used to send unsigned integers over serial port
   union UWriteBuffer {
+    uint8_t bytes[8];
+    uint64_t val;
+  };
+
+  // used to send unsigned integers over serial port
+  union FloatingWriteBuffer {
     uint8_t bytes[8];
     uint64_t val;
   };
@@ -27,6 +34,7 @@ namespace mlSerial {
     uint32_t Serial_Read_32bit();
     uint32_t Serial_Read_32bit(bool doWait);
 
+    // send uint data as bytes over serial port
 
     // send uint data as bytes over serial port
     void Serial_Write_8bit(uint8_t writeData);
@@ -38,6 +46,10 @@ namespace mlSerial {
     void Serial_Write_16bit(int16_t writeData);
     void Serial_Write_32bit(int32_t writeData);
 
+    void Serial_Write_Float(float writeData);
+    void Serial_Write_Double(double writeData);
+
+    // general commands
     void Wait_Next_Command();
     void Wait_Bytes(const int nBytes);
     bool Wait_Bytes(const int nBytes, uint32_t waitTimeout);

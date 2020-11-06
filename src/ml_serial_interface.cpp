@@ -104,6 +104,22 @@ namespace mlSerial {
   }
 
   /******************************************************************************/
+  void MLSerial::Serial_Write_32bit(const int32_t writeData){
+    writeBuffer_.val = writeData;
+    Serial.write(writeBuffer_.bytes, 4);
+  }
+
+  /******************************************************************************/
+  void MLSerial::Serial_Write_32bit(const int32_t writeData){
+    writeBuffer_.val = writeData;
+    Serial.write(writeBuffer_.bytes, 4);
+  }
+
+      void Serial_Write_Float(float writeData);
+    void Serial_Write_Double(double writeData);
+
+
+  /******************************************************************************/
   // wait for the next, 2 byte long command
   void MLSerial::Wait_Next_Command(){
     Wait_Bytes(2);
