@@ -10,7 +10,7 @@ function [success] = Wait_For_Bytes(Obj,nBytes,timeOut)
   % wait for ready command...
   while (Obj.bytesAvailable < nBytes)
     if toc(t1) > timeOut
-      Obj.Verbose_Warn('Wait_For_Bytes timeout!\n');
+      Obj.Verbose_Warn('Timeout while waiting for serial data!\n');
       return;
     end
   end

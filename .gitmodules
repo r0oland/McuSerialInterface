@@ -1,0 +1,9 @@
+; [submodule "BaseHardwareClass"]
+; 	update = merge
+; 	path = BaseHardwareClass
+; 	url = https://github.com/razanskylab/BaseHardwareClass.git
+
+; [submodule "MatlabUtilities"]
+; 	path = MatlabUtilities
+; 	update = merge
+; 	url = https://github.com/razanskylab/MatlabUtilities.git

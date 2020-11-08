@@ -1,7 +1,7 @@
 % non functional example class to be used as basis for new hardware interfacing
 % class, as they alls should have similar structure and content
 
-classdef ML_Serial_Interface < BaseHardwareClass
+classdef @McuSerialInterface < BaseHardwareClass
 
   % must be implemented by the children class
   properties (Abstract = true)
