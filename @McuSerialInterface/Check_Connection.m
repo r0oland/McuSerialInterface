@@ -13,7 +13,7 @@ function [success] = Check_Connection(Obj)
       Obj.PrintF('we are ready to go!\n');
     else
       short_warn(' unexpected return value!');
-      error('Something went wrong in the teensy!');
+      Obj.VPrintF_With_ID('Connection was not established correctly!');
     end
   else
     Obj.VPrintF_With_ID('Connection was not established correctly!');

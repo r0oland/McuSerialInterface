@@ -1,7 +1,7 @@
 % non functional example class to be used as basis for new hardware interfacing
 % class, as they alls should have similar structure and content
 
-classdef @McuSerialInterface < BaseHardwareClass
+classdef McuSerialInterface < BaseHardwareClass
 
   % must be implemented by the children class
   properties (Abstract = true)
@@ -29,6 +29,8 @@ classdef @McuSerialInterface < BaseHardwareClass
   end
 
   properties (Constant)
+    %% these commands must not be changed, as they are also used 
+    % in the MCU firmware...
     DO_NOTHING = uint16(00);
     STOP = uint16(93);
     CLOSE_CONNECTION = uint16(94);
@@ -37,7 +39,6 @@ classdef @McuSerialInterface < BaseHardwareClass
     ERROR = uint16(97);
     READY = uint16(98);
     DONE = uint16(99);
-
   end
 
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -45,23 +46,7 @@ classdef @McuSerialInterface < BaseHardwareClass
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   methods
     % constructor, called when class is created
-    function Obj = MCU_Class(varargin)
-      if nargin < 1
-        doConnect = Obj.DO_AUTO_CONNECT;
-      end
-      
-      if nargin == 1 && ischar(varargin{1})
-        Obj.serialPort = varargin{1};
-        doConnect = true;
-      elseif nargin == 1 && islogical(varargin{1})
-        doConnect = varargin{1};
-      end
-
-      if doConnect && ~Obj.isConnected
-        Obj.Connect();
-      elseif ~Obj.isConnected
-        Obj.VPrintF_With_ID('Initialized but not connected yet.\n');
-      end
+    function Obj = McuSerialInterface(varargin)
     end
 
     %*************************************************************************%
