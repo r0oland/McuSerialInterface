@@ -32,6 +32,7 @@ classdef McuSerialInterface < BaseHardwareClass
     %% these commands must not be changed, as they are also used 
     % in the MCU firmware...
     DO_NOTHING = uint16(00);
+    RESTART_MCU = uint16(91);
     STOP = uint16(93);
     CLOSE_CONNECTION = uint16(94);
     CHECK_ID = uint16(95);

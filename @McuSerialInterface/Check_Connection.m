@@ -13,10 +13,10 @@ function [success] = Check_Connection(Obj)
       Obj.PrintF('we are ready to go!\n');
     else
       short_warn(' unexpected return value!');
-      Obj.VPrintF_With_ID('Connection was not established correctly!');
+      Obj.VPrintF_With_ID('Connection was not established correctly!\n');
     end
   else
-    Obj.VPrintF_With_ID('Connection was not established correctly!');
+    Obj.VPrintF_With_ID('Connection was not established correctly!\n');
     return;
   end
   
@@ -37,7 +37,7 @@ function [success] = Check_Connection(Obj)
       short_warn(' Wrong MCU connected!');
     end
   else
-    Obj.VPrintF_With_ID('failed due to timeout!');
+    Obj.VPrintF_With_ID('failed due to timeout!\n');
   end
 
 
