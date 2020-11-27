@@ -16,7 +16,7 @@ classdef McuSerialInterface < BaseHardwareClass
   end
 
   % things we don't want to accidently change but that still might be interesting
-  properties (SetAccess = private, Transient = true)
+  properties (Transient = true)
     SerialPortObj; % serial port object
   end
 
