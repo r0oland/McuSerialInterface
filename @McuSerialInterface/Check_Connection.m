@@ -7,10 +7,10 @@ function [success] = Check_Connection(Obj)
   
   success = Obj.Wait_For_Bytes(2); % give MCU time to answer with 2 bytes, timeout = 1s
   if success
-    Obj.PrintF('...');
+    Obj.VPrintF('...');
     answer = Obj.Read_Command(); % read two byte answers (uint16)
     if answer == Obj.READY
-      Obj.PrintF('we are ready to go!\n');
+      Obj.VPrintF('we are ready to go!\n');
     else
       short_warn(' unexpected return value!');
       Obj.VPrintF_With_ID('Connection was not established correctly!\n');
@@ -31,7 +31,7 @@ function [success] = Check_Connection(Obj)
   if success
     answer = Obj.Read_Data(nRequiredBytes,"string");
     if strcmp(answer,Obj.MCU_ID)
-      Obj.PrintF('correct MCU!\n');
+      Obj.VPrintF('correct MCU!\n');
       success = true;
     else
       short_warn(' Wrong MCU connected!');
